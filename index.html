@@ -5,22 +5,30 @@
     <link rel="stylesheet" type="text/css" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1 class="heading">Comparison Sorting Algorithms</h1>
-      <nav>
-        <ul class="navbar">
-          <li><button onclick="randomizeArray()">Randomize Array</button></li>
-          <li><button onclick="">Insertion Sort</button></li>
-          <li><button onclick="">Selection Sort</button></li>
-          <li><button onclick="">Bubble Sort</button></li>
-          <li><button onclick="">Quick Sort</button></li>
-          <li><button onclick="">Merge Sort</button></li>
-          <li><button onclick="">Shell Sort</button></li>
-          <li><button onclick="">Change Size</button></li>
-        </ul>
-      </nav>
-    </header>
-    <canvas id="sortingAlgorithmsChart"></canvas>
+    <div class="container">
+      <div class="row">
+        <header>
+          <h1 class="heading">Comparison Sorting Algorithms</h1>
+          <nav>
+            <ul class="navbar">
+              <li>
+                <button onclick="randomizeArray()">Randomize Array</button>
+              </li>
+              <li><button onclick="insertionSort()">Insertion Sort</button></li>
+              <li><button onclick="selectionSort()">Selection Sort</button></li>
+              <li><button onclick="bubbleSort()">Bubble Sort</button></li>
+              <li><button onclick="quickSort()">Quick Sort</button></li>
+              <li><button onclick="mergeSort()">Merge Sort</button></li>
+              <li><button onclick="shellSort()">Shell Sort</button></li>
+              <li><button onclick="changeSize()">Change Size</button></li>
+            </ul>
+          </nav>
+        </header>
+      </div>
+      <div class="row">
+        <canvas id="sortingAlgorithmsChart"></canvas>
+      </div>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="index.js"></script>
   </body>

@@ -1,3 +1,8 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
 #sortingAlgorithmsChart {
     width: 100%;
     max-width: 1300px;
@@ -21,4 +26,18 @@
 .navbar li {
   float: left;
   margin: 5px;
+}
+
+.navbar button {
+  background-color: rgb(219, 189, 235);
+  color: black;
+  font-size: larger;
+  border: 1px solid salmon;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.navbar button:hover {
+  background-color: rgb(132, 45, 213);
+  cursor: pointer;
 }
