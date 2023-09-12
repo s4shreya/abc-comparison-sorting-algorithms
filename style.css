@@ -1,0 +1,24 @@
+#sortingAlgorithmsChart {
+    width: 100%;
+    max-width: 1300px;
+    pointer-events: none;
+  }
+
+.heading {
+  color: rgb(235, 235, 5);
+  background-color: green;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: aquamarine;
+}
+
+.navbar li {
+  float: left;
+  margin: 5px;
+}
