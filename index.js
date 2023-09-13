@@ -12,6 +12,7 @@ let numbers = [],
     "coral",
     "pink",
   ];
+let barThickness = 1;
 
 // Creating initial array with random numbers from 0 to 99
 for (let i = 0; i < 50; i++) {
@@ -20,7 +21,8 @@ for (let i = 0; i < 50; i++) {
 }
 
 // Function to create Bar graph on webpage
-let createBarGraph = (numbers, colors) => {
+let createBarGraph = (numbers, colors, barThickness = 1) => {
+  console.log("bar thickness is", barThickness);
   new Chart(document.getElementById("sortingAlgorithmsChart"), {
     type: "bar",
     data: {
@@ -40,6 +42,12 @@ let createBarGraph = (numbers, colors) => {
         display: true,
         text: "Algorithm visualization",
       },
+      scales: {
+        xAxes: [{
+          maxBarThickness: 100,
+          barPercentage: barThickness
+        }]
+      }
     },
   });
 };
@@ -48,12 +56,12 @@ let createBarGraph = (numbers, colors) => {
 let selectColor = (c) => colorsList[c];
 
 // Creates initial Bar graph
-createBarGraph(numbers, colors);
+createBarGraph(numbers, colors, barThickness);
 
 // Function to randomize array and then create Bar graph of that array
 let randomizeArray = () => {
   for (let i = 0; i < 50; i++) numbers[i] = Math.floor(Math.random() * 100);
-  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)));
+  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)), barThickness);
 };
 
 // Performs insertion sort on the array and draws its respective Bar graph
@@ -68,7 +76,7 @@ let insertionSort = () => {
     }
     numbers[j + 1] = element;
   }
-  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)));
+  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)), barThickness);
 };
 
 // Performs Selection sort on the array and draws its respective Bar graph
@@ -82,7 +90,7 @@ let selectionSort = () => {
     numbers[min_index] = numbers[i];
     numbers[i] = temp;
   }
-  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)));
+  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)), barThickness);
 };
 
 // Performs Bubble sort on the array and draws its respective Bar graph
@@ -97,7 +105,7 @@ let bubbleSort = () => {
       }
     }
   }
-  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)));
+  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)), barThickness);
 };
 
 // Performs Quick sort on the array and draws its respective Bar graph
@@ -118,7 +126,7 @@ let quickSortRecursive = (numbers) => {
 
 let quickSort = () => {
   numbers = quickSortRecursive(numbers);
-  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)));
+  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)), barThickness);
 };
 
 // Performs Merge sort on the array and draws its respective Bar graph
@@ -145,7 +153,7 @@ let merge_sort = (nums) => {
 
 let mergeSort = () => {
   numbers = merge_sort(numbers);
-  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)));
+  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)), barThickness);
 };
 
 // Performs Shell sort on the array and draws its respective Bar graph
@@ -163,10 +171,17 @@ let shellSort = () => {
       numbers[j] = temp;
     }
   }
-  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)));
+  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)), barThickness);
 };
 
-// Changes size of the array and draws its respective Bar graph
-let changeSize = () => {
-  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)));
+// Changes size of the bar by decreasing the bar thickness and draws its respective Bar graph
+let shrinkSize = () => {
+  barThickness = barThickness < 0.3 ? 0.01 : barThickness - 0.3;
+  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)), barThickness);
+};
+
+// Changes size of the bar by increasing the bar thickness and draws its respective Bar graph
+let growSize = () => {
+  barThickness += 0.3;
+  createBarGraph(numbers, selectColor(Math.floor(Math.random() * 10)), barThickness);
 };

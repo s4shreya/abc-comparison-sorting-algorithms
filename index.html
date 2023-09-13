@@ -20,7 +20,13 @@
               <li><button onclick="quickSort()">Quick Sort</button></li>
               <li><button onclick="mergeSort()">Merge Sort</button></li>
               <li><button onclick="shellSort()">Shell Sort</button></li>
-              <li><button onclick="changeSize()">Change Size</button></li>
+              <li class="dropdown">
+                <button class="dropbtn">Change Size</button>
+                <div class="dropdown-content">
+                  <button onclick="shrinkSize()">Shrink</button>
+                  <button onclick="growSize()">Stretch</button>
+                </div>
+              </li>
             </ul>
           </nav>
         </header>
